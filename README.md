@@ -2,6 +2,10 @@ This is a fork of github.com/jmhodges/levigo. Hardcoded cgo linker directives
 have been removed, in favor of the CGO_LDFLAGS environment variable, which
 allows selective choice of static or dynamic linking.
 
+Static linking of LevelDB can now be achieved by a combination of CGO_LDFLAGS and command-line flag:
+
+	CGO_CFLAGS="-I/path/to/leveldb/include" CGO_LDFLAGS="/path/to/libleveldb.a " go build -ldflags='-extld g++'
+
 # levigo
 
 levigo is a Go wrapper for LevelDB.
